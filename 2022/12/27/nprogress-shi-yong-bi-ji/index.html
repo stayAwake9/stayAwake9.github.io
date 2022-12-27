@@ -4,8 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签: Typora, STAYAWAKE">
-    <meta name="description" content="STAYAWAKE">
+    <meta name="keywords" content="NProgress使用笔记, STAYAWAKE">
+    <meta name="description" content="NProgress使用笔记关于在vue项目中使用Nprogress来显示页面顶部的进度条笔记
+Github地址https://github.com/rstacruz/nprogres
+演示网站https://ricostacruz.com/">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签: Typora | STAYAWAKE</title>
+    <title>NProgress使用笔记 | STAYAWAKE</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -304,176 +306,549 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
-    <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                StayAwake
-                
-            </div>
+    
 
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "用绝对清醒的理智压制不该有的情绪",
-                            
-                                "Suppress the emotions you should not have with absolutely sober reason",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://stayawake.oss-cn-beijing.aliyuncs.com/NProgress.gif')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">NProgress使用笔记</h1>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E6%BA%90%E6%8F%92%E4%BB%B6/">
+                                <span class="chip bg-color">前端开源插件</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-12-27
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    732
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    3 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="NProgress使用笔记"><a href="#NProgress使用笔记" class="headerlink" title="NProgress使用笔记"></a>NProgress使用笔记</h1><p>关于在vue项目中使用Nprogress来显示页面顶部的进度条笔记</p>
+<h4 id="Github地址"><a href="#Github地址" class="headerlink" title="Github地址"></a>Github地址</h4><p><a target="_blank" rel="noopener" href="https://github.com/rstacruz/nprogress">https://github.com/rstacruz/nprogres</a></p>
+<h4 id="演示网站"><a href="#演示网站" class="headerlink" title="演示网站"></a>演示网站</h4><p><a target="_blank" rel="noopener" href="https://ricostacruz.com/nprogress/">https://ricostacruz.com/nprogress/</a></p>
+<h2 id="安装-基本用法"><a href="#安装-基本用法" class="headerlink" title="安装+基本用法"></a>安装+基本用法</h2><pre class="line-numbers language-none"><code class="language-none">// 下载安装
+npm i nprogress -S
+
+// 基本用法
+NProgress.start();
+NProgress.done();<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h2><h5 id="递增："><a href="#递增：" class="headerlink" title="递增："></a>递增：</h5><p>要递增进度条，只需使用  .inc() 。这使它以随机量递增。这将永远不会达到100%； 将其用于每次图片加载（或类似加载）。</p>
+<pre class="line-numbers language-none"><code class="language-none">NProgress.inc();<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="如果要添加特定值，可以将其作为参数传递："><a href="#如果要添加特定值，可以将其作为参数传递：" class="headerlink" title="如果要添加特定值，可以将其作为参数传递："></a>如果要添加特定值，可以将其作为参数传递：</h5><pre class="line-numbers language-none"><code class="language-none">NProgress.inc(0.2);  //这将获取当前状态值并添加0.2直到状态为0.994<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>PS:我的理解：及每次增加一点点，但永远不会到100%</p>
+<h4 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h4><h5 id="easing-和-speed"><a href="#easing-和-speed" class="headerlink" title="easing 和 speed"></a>easing 和 speed</h5><p>使用缓动（CSS缓动字符串）和速度（以豪秒为单位）调整动画设置。（默认： ease和 200）</p>
+<pre class="line-numbers language-none"><code class="language-none">NProgress.configure({ easing:'ease',speed: 500});<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="showSpinner"><a href="#showSpinner" class="headerlink" title="showSpinner"></a>showSpinner</h5><p>通过将加载微调器设置为false 来关闭它。（默认值：true）</p>
+<pre class="line-numbers language-none"><code class="language-none">Nprogress.configure({showSpinner:false})<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="minimum"><a href="#minimum" class="headerlink" title="minimum"></a>minimum</h5><p>更改启动时使用最小的百分比（默认：0.08）</p>
+<pre class="line-numbers language-none"><code class="language-none">NProgress.configure({minimum:0.1});<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="template"><a href="#template" class="headerlink" title="template:"></a>template:</h5><p>可以使用template 更改标记，若要使进度条保持工作，请将元素role=’bar’保留在那里，<a target="_blank" rel="noopener" href="https://github.com/rstacruz/nprogress/blob/master/nprogress.js">默认模板</a>以进行参考</p>
+<pre class="line-numbers language-none"><code class="language-none">NProgress.configure({
+	template:"&lt;div class="..."&gt;...&lt;/div&gt;"
+})<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="trickle"><a href="#trickle" class="headerlink" title="trickle"></a>trickle</h5><p>将其设置为false 关闭自动递增行为（默认：true）</p>
+<pre class="line-numbers language-none"><code class="language-none">NProgress.configure({
+	trickle:false
+})<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="parent"><a href="#parent" class="headerlink" title="parent"></a>parent</h5><p>指定此选项以更改父容器（默认：body）</p>
+<pre class="line-numbers language-none"><code class="language-none">NProgress.configure({
+	parent:'#container'
+})<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h4 id="在vue项目中使用"><a href="#在vue项目中使用" class="headerlink" title="在vue项目中使用"></a>在vue项目中使用</h4><h4 id="引入NProgress默认样式"><a href="#引入NProgress默认样式" class="headerlink" title="引入NProgress默认样式"></a>引入NProgress默认样式</h4><p>在 ~/main.js中引入Nprogress默认样式</p>
+<pre class="line-numbers language-none"><code class="language-none">//引入进度条样式
+import 'nprogress/nprogress.css'<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>它默认显示蓝色进度条，如果你想自定义进度条颜色可在全局css中或在app.vue下写入自己自定义的css样式；</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;style&gt;
+//自定义进度条颜色
+#nprogress .bar{
+	background: #F811B2 !important;
+}
+&lt;/style&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="在页面切换中使用"><a href="#在页面切换中使用" class="headerlink" title="在页面切换中使用"></a>在页面切换中使用</h5><p>在 ~/router/index.js 【路由配置】文件中：</p>
+<pre class="line-numbers language-none"><code class="language-none">import Vue from 'vue'
+import VueRouter from 'vue-router'
+//引入nprogress进度条插件
+import NProgress from 'nprogress'
+
+Vue.use(VueRouter);
+
+//简单配置进度条，可以不配置： 在axios中我们不再做配置，以用来区分。
+NProgess.inc(0.2)
+NProgress.configure({easing:'ease',speed:500,showSpinner:false})
+
+
+esport const constRouter=[
+	{
+        path: '/login',
+        component: () =&gt; import('@/views/login/Login'),
+    },
+    ...
+]
+
+const rputer = new VueRouter({
+	mode: 'history',
+	base: process.env.BASE_URL,
+	routes: constRouter
+})
+
+//页面路由刚开始切换的时候
+router.beforeEach(async (to,from,next)=&gt;{
+	// 开启进度条
+    NProgress.start();
+})
+
+//页面路由切换完毕的时候
+router.afterEach(()=&gt;{
+	//关闭进度条
+	NProgress.done()
+})
+
+export default router<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="在接口请求中使用"><a href="#在接口请求中使用" class="headerlink" title="在接口请求中使用"></a>在接口请求中使用</h4><p>在 ~/api/index.js 【axios请求配置】文件中：</p>
+<pre class="line-numbers language-none"><code class="language-none">import axios from 'axios'
+//引入nprogress进度条插件
+import NProgress from 'nprogress'
+
+//创建axios实例
+const service = axios.create({
+    baseURL: process.env.VUE_APP_BASE_API, //URL地址   环境变量文件
+    timeout: 5000 ,//超时
+})
+
+// 请求拦截器
+service.interceptors.request.use(
+    config =&gt; {
+    	// 开启进度条
+		NProgress.start();
+        return config
+    },
+    error =&gt; {
+        return Promise.reject(error)
+    }
+)
+
+// 响应拦截器
+service.interceptors.response.use(
+    response =&gt;{
+        // 关闭进度条
+        NProgress.done()
+    	return Promise.reject(response)
+    },
+    error =&gt; {
+        // 关闭进度条
+        NProgress.done()
+        return Promise.reject(error)
+    }
+)
+
+export default service;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">stayAwake</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://stayawake9.github.io/2022/12/27/nprogress-shi-yong-bi-ji/">https://stayawake9.github.io/2022/12/27/nprogress-shi-yong-bi-ji/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">stayAwake</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E6%BA%90%E6%8F%92%E4%BB%B6/">
+                                    <span class="chip bg-color">前端开源插件</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/12/27/nprogress-shi-yong-bi-ji/">
+                    <div class="card-image">
+                        
+                        <img src="https://stayawake.oss-cn-beijing.aliyuncs.com/NProgress.gif" class="responsive-img" alt="NProgress使用笔记">
+                        
+                        <span class="card-title">NProgress使用笔记</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            stayAwake
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E6%BA%90%E6%8F%92%E4%BB%B6/">
+                        <span class="chip bg-color">前端开源插件</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/12/15/img/">
+                    <div class="card-image">
+                        
+                        <img src="https://stayawake.oss-cn-beijing.aliyuncs.com/evening.jpg" class="responsive-img" alt="img">
+                        
+                        <span class="card-title">img</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            这是你自定义的文章摘要内容，如果这个属性有值，文章卡片摘要就显示这段文字，否则程序会自动截取文章的部分内容作为摘要
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Markdown/" class="post-category">
+                                    Markdown
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Typora/">
+                        <span class="chip bg-color">Typora</span>
+                    </a>
+                    
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
 </script>
 
-
-    </div>
-</div>
-
-<main class="content">
-
     
 
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
-            </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/%E5%BC%80%E7%AF%87/" title="开篇: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="开篇" style="background-color: #F9EBEA;">开篇
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Typora/" title="Typora: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-active "
-                            data-tagname="Typora" style="background-color: #F5EEF8;">Typora
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Markdown/" title="Markdown: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Markdown" style="background-color: #D5F5E3;">Markdown
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E6%BA%90%E6%8F%92%E4%BB%B6/" title="前端开源插件: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="前端开源插件" style="background-color: #E8F8F5;">前端开源插件
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="Typora, Markdown" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/12/15/img/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="https://stayawake.oss-cn-beijing.aliyuncs.com/evening.jpg" class="responsive-img" alt="img">
-                            
-                            <span class="card-title">img</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Markdown/" class="post-category">
-                                Markdown
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="Typora, Markdown" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2022/12/15/firstblog/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="https://stayawake.oss-cn-beijing.aliyuncs.com/morning.jpg" class="responsive-img" alt="FirstBlog">
-                            
-                            <span class="card-title">FirstBlog</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-12-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Markdown/" class="post-category">
-                                Markdown
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </article>
 </main>
 
 
