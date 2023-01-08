@@ -366,14 +366,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    761
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -454,6 +454,56 @@
 
 <p>浏览器校验通过后，才会发送真实请求：和简单请求一样</p>
 <p>CORS解决方案就是 服务器根据浏览器规范对相应的请求头做出相应的设置就可</p>
+<h1 id="跨域问题解决方案—-JSONP"><a href="#跨域问题解决方案—-JSONP" class="headerlink" title="跨域问题解决方案—-JSONP"></a>跨域问题解决方案—-JSONP</h1><h3 id="JSONP-JSON-with-Padding"><a href="#JSONP-JSON-with-Padding" class="headerlink" title="JSONP     JSON   with Padding"></a>JSONP     JSON   with Padding</h3><p>JSONP是解决跨域问题额古老方案</p>
+<p>同源策略中，对标签的跨域请求限制较小</p>
+<p>JSONP利用这一点。</p>
+<p><img width="500" src="https://stayawake.oss-cn-beijing.aliyuncs.com/IMG_20230108_171137.jpg"></p>
+<p>JSONP原理：</p>
+<p>通过script标签向服务器端发送一个get请求，服务端返回一个text/plain格式的文件，文件内容是对一个方法的调用，并回传数据，如下：</p>
+<pre class="line-numbers language-none"><code class="language-none">callback('hello,word')<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<p>实例代码</p>
+<pre class="line-numbers language-none"><code class="language-none">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="utf-8"&gt;
+        &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+        &lt;title&gt;Title Page&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;script&gt;
+        function callback(resp){
+            console.log(resp);
+        }
+
+        function request(url){
+            const script = document.createElement('script');
+            script.src = url;
+            script.onload = function(){
+                script.remove();
+            }
+            document.body.appendChild(script)
+        }
+        document.querySelector('button').onclick = function(){
+            // 接口地址
+            request('http://localhost:8000/api/user');
+        }
+    &lt;/script&gt;
+    &lt;body&gt;
+       &lt;button &gt;点击获取用户&lt;/button&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>JSONP其实已经跟AJAX脱离关系，JQuery只是对这个函数的封装</p>
+<p>JSONP跨域缺点：</p>
+<ul>
+<li>只能发送get请求，不支持post put delete</li>
+<li>不安全，xss攻击，返回的内容可以对网站内容进行篡改</li>
+</ul>
 
                 
             </div>
@@ -789,7 +839,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">2.2k</span>
+                        class="white-color">2.4k</span>
             
             
             
