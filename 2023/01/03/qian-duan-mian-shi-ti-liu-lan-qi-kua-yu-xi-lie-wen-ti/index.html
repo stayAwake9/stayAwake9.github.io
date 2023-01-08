@@ -366,14 +366,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -504,6 +504,21 @@
 <li>只能发送get请求，不支持post put delete</li>
 <li>不安全，xss攻击，返回的内容可以对网站内容进行篡改</li>
 </ul>
+<h1 id="跨域问题解决方案—-代理"><a href="#跨域问题解决方案—-代理" class="headerlink" title="跨域问题解决方案—-代理"></a>跨域问题解决方案—-代理</h1><h3 id="跨域解决方案中-CORS和-JSONP-均对服务器有要求"><a href="#跨域解决方案中-CORS和-JSONP-均对服务器有要求" class="headerlink" title="跨域解决方案中 CORS和 JSONP 均对服务器有要求"></a>跨域解决方案中 CORS和 JSONP 均对服务器有要求</h3><p><img width="500" height="300" src="https://stayawake.oss-cn-beijing.aliyuncs.com/IMG_20230108_234712.jpg"></p>
+<p>CORS ： 需要设置请求头</p>
+<p>JSONP：需要服务器相应JS代码并且还需要调用方法</p>
+<p>代理解决跨域的方式</p>
+<p><img width="500" src="https://stayawake.oss-cn-beijing.aliyuncs.com/IMG_20230108_235200.jpg"></p>
+<h3 id="本地启动服务解决跨域"><a href="#本地启动服务解决跨域" class="headerlink" title="本地启动服务解决跨域"></a>本地启动服务解决跨域</h3><p>前端项目在本地环境之所以能启动，是因为本地启动了一个Node服务器，我们可以让这台服务器作为代理服务器去完成请求的发送。</p>
+<p>vue-cli本身提供了vue.config.js配置文件来配置服务器的代理，通过配置devServer可以实现这一效果：</p>
+<p><img src="https://stayawake.oss-cn-beijing.aliyuncs.com/f108b8593bca5e56db3e8512807ba4fd.png"></p>
+<p><img src="https://stayawake.oss-cn-beijing.aliyuncs.com/2fc3a77464c5edfd1cd10c9c17419b00.png"></p>
+<p>如上图所示，在浏览器看来访问的/disease-api，是localhost:9528这个ip和端口的服务,符合同源策略，所以浏览器并不会认为这是跨域。</p>
+<p>实际上，服务器在拦截到带有/disease-api/后，会将访问前缀更换为指定目标【target】，实际时访问的是 <a target="_blank" rel="noopener" href="https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5%E3%80%82">https://view.inews.qq.com/g2/getOnsInfo?name=disease_h5。</a></p>
+<p>部署后的服务解决跨域</p>
+<p>前端项目部署后，因为没有了本地的Node环境，可以通过nginx服务器来完成反向代理。</p>
+<p>特别注意，此种情况需要服务器自身能够访问<a target="_blank" rel="noopener" href="https://view.inews.qq.com/disease-api/g2/getOnsInfo?name=disease_h5%EF%BC%8C%E4%BD%BF%E7%94%A8%E5%89%8D%E8%AF%B7%E7%A1%AE%E8%AE%A4%E3%80%82">https://view.inews.qq.com/disease-api/g2/getOnsInfo?name=disease_h5，使用前请确认。</a></p>
+<h1 id="跨域经典场景"><a href="#跨域经典场景" class="headerlink" title="跨域经典场景"></a>跨域经典场景</h1><p><img width="500" height="500" src="https://stayawake.oss-cn-beijing.aliyuncs.com/IMG_20230109_000755.jpg"></p>
 
                 
             </div>
@@ -839,7 +854,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">2.4k</span>
+                        class="white-color">2.8k</span>
             
             
             
