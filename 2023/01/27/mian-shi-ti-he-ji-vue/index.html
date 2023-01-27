@@ -1,0 +1,1420 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="面试题合集-VUE, STAYAWAKE">
+    <meta name="description" content="VUE2面试题系类1、v-show与v-if有什么区别？相同点：v-show和v-if都是控制dom元素的显示和隐藏。不同点：1、原理：v-show时通过控制元素的样式属性display的值，来完成显示和隐藏；v-if是通过对dom元素的添">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>面试题合集-VUE | STAYAWAKE</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">STAYAWAKE</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">STAYAWAKE</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/stayAwake9/stayAwake9.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/stayAwake9/stayAwake9.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">面试题合集-VUE</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                <span class="chip bg-color">面试题</span>
+                            </a>
+                        
+                            <a href="/tags/VUE/">
+                                <span class="chip bg-color">VUE</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-01-27
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    16 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="VUE2面试题系类"><a href="#VUE2面试题系类" class="headerlink" title="VUE2面试题系类"></a>VUE2面试题系类</h1><h2 id="1、v-show与v-if有什么区别？"><a href="#1、v-show与v-if有什么区别？" class="headerlink" title="1、v-show与v-if有什么区别？"></a>1、v-show与v-if有什么区别？</h2><h3 id="相同点："><a href="#相同点：" class="headerlink" title="相同点："></a>相同点：</h3><h5 id="v-show和v-if都是控制dom元素的显示和隐藏。"><a href="#v-show和v-if都是控制dom元素的显示和隐藏。" class="headerlink" title="v-show和v-if都是控制dom元素的显示和隐藏。"></a>v-show和v-if都是控制dom元素的显示和隐藏。</h5><h3 id="不同点："><a href="#不同点：" class="headerlink" title="不同点："></a>不同点：</h3><h5 id="1、原理："><a href="#1、原理：" class="headerlink" title="1、原理："></a>1、原理：</h5><h5 id="v-show时通过控制元素的样式属性display的值，来完成显示和隐藏；"><a href="#v-show时通过控制元素的样式属性display的值，来完成显示和隐藏；" class="headerlink" title="v-show时通过控制元素的样式属性display的值，来完成显示和隐藏；"></a>v-show时通过控制元素的样式属性display的值，来完成显示和隐藏；</h5><h5 id="v-if是通过对dom元素的添加和删除来完成显示和隐藏"><a href="#v-if是通过对dom元素的添加和删除来完成显示和隐藏" class="headerlink" title="v-if是通过对dom元素的添加和删除来完成显示和隐藏"></a>v-if是通过对dom元素的添加和删除来完成显示和隐藏</h5><h5 id="2、使用场景：由原理（做法）得出使用场景的区别"><a href="#2、使用场景：由原理（做法）得出使用场景的区别" class="headerlink" title="2、使用场景：由原理（做法）得出使用场景的区别"></a>2、使用场景：由原理（做法）得出使用场景的区别</h5><h5 id="v-show：使用在dom元素频繁切换的场景"><a href="#v-show：使用在dom元素频繁切换的场景" class="headerlink" title="v-show：使用在dom元素频繁切换的场景"></a>v-show：使用在dom元素频繁切换的场景</h5><h5 id="v-if：当dom元素的切换不频繁，可以使用。特别是，首次元素处于隐藏的情况下"><a href="#v-if：当dom元素的切换不频繁，可以使用。特别是，首次元素处于隐藏的情况下" class="headerlink" title="v-if：当dom元素的切换不频繁，可以使用。特别是，首次元素处于隐藏的情况下"></a>v-if：当dom元素的切换不频繁，可以使用。特别是，首次元素处于隐藏的情况下</h5><hr>
+<h2 id="2、说说对SPA单页面的理解，他的优缺点分别是什么？"><a href="#2、说说对SPA单页面的理解，他的优缺点分别是什么？" class="headerlink" title="2、说说对SPA单页面的理解，他的优缺点分别是什么？"></a>2、说说对SPA单页面的理解，他的优缺点分别是什么？</h2><h3 id="理解："><a href="#理解：" class="headerlink" title="理解："></a>理解：</h3><p>SPA的英文是 single-page application，也就是说整个项目中只有一个页面。</p>
+<p>单页面应用的实现思路： 就是Web页面初始化时加载所有的HTML、JavaScript和 CSS，内容的变化，靠动态操作DOM。</p>
+<h3 id="优点和缺点"><a href="#优点和缺点" class="headerlink" title="优点和缺点"></a>优点和缺点</h3><h4 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h4><h6 id="1）：局部刷新。—用户体验好、快，内容的改变不需要重新加载整个页面。"><a href="#1）：局部刷新。—用户体验好、快，内容的改变不需要重新加载整个页面。" class="headerlink" title="1）：局部刷新。—用户体验好、快，内容的改变不需要重新加载整个页面。"></a>1）：局部刷新。—用户体验好、快，内容的改变不需要重新加载整个页面。</h6><h6 id="2）：服务器的压力小。-—-基于上面一点，SPA对服务器压力小；"><a href="#2）：服务器的压力小。-—-基于上面一点，SPA对服务器压力小；" class="headerlink" title="2）：服务器的压力小。  — 基于上面一点，SPA对服务器压力小；"></a>2）：服务器的压力小。  — 基于上面一点，SPA对服务器压力小；</h6><h6 id="3）：前后端职责分离。-—-架构清晰，前端进行交互逻辑，后端负责数据处理；"><a href="#3）：前后端职责分离。-—-架构清晰，前端进行交互逻辑，后端负责数据处理；" class="headerlink" title="3）：前后端职责分离。 — 架构清晰，前端进行交互逻辑，后端负责数据处理；"></a>3）：前后端职责分离。 — 架构清晰，前端进行交互逻辑，后端负责数据处理；</h6><h4 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h4><h6 id="1）：初次加载耗时多。—-为实现单页面Web应用功能及显示效果，需要在加载页面的时候将，JavaScript、CSS统一加载，部分页面按需加载；"><a href="#1）：初次加载耗时多。—-为实现单页面Web应用功能及显示效果，需要在加载页面的时候将，JavaScript、CSS统一加载，部分页面按需加载；" class="headerlink" title="1）：初次加载耗时多。— 为实现单页面Web应用功能及显示效果，需要在加载页面的时候将，JavaScript、CSS统一加载，部分页面按需加载；"></a>1）：初次加载耗时多。— 为实现单页面Web应用功能及显示效果，需要在加载页面的时候将，JavaScript、CSS统一加载，部分页面按需加载；</h6><h6 id="2）：前进后退路由管理问题。-—-由于单页面应用在一个页面中显示所有的内容，所以不能使用浏览器的前进后退的功能，所有的页面切换需要自己搭建堆栈管理（vue-router完成）"><a href="#2）：前进后退路由管理问题。-—-由于单页面应用在一个页面中显示所有的内容，所以不能使用浏览器的前进后退的功能，所有的页面切换需要自己搭建堆栈管理（vue-router完成）" class="headerlink" title="2）：前进后退路由管理问题。 — 由于单页面应用在一个页面中显示所有的内容，所以不能使用浏览器的前进后退的功能，所有的页面切换需要自己搭建堆栈管理（vue-router完成）"></a>2）：前进后退路由管理问题。 — 由于单页面应用在一个页面中显示所有的内容，所以不能使用浏览器的前进后退的功能，所有的页面切换需要自己搭建堆栈管理（vue-router完成）</h6><h6 id="3）：SEO难度较大。—-由于所有的内容都在一个页面中动态替换显示，所以在SEO上其有着天然的弱势。"><a href="#3）：SEO难度较大。—-由于所有的内容都在一个页面中动态替换显示，所以在SEO上其有着天然的弱势。" class="headerlink" title="3）：SEO难度较大。— 由于所有的内容都在一个页面中动态替换显示，所以在SEO上其有着天然的弱势。"></a>3）：SEO难度较大。— 由于所有的内容都在一个页面中动态替换显示，所以在SEO上其有着天然的弱势。</h6><hr>
+<h2 id="3、怎么理解Vue的单向数据流"><a href="#3、怎么理解Vue的单向数据流" class="headerlink" title="3、怎么理解Vue的单向数据流"></a>3、怎么理解Vue的单向数据流</h2><h4 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h4><h5 id="单项数据流是发生在-父组件向子组件传值的时候-，所有的prop使得起父子prop之间形成了也该单向下行绑定。"><a href="#单项数据流是发生在-父组件向子组件传值的时候-，所有的prop使得起父子prop之间形成了也该单向下行绑定。" class="headerlink" title="单项数据流是发生在   父组件向子组件传值的时候  ，所有的prop使得起父子prop之间形成了也该单向下行绑定。"></a>单项数据流是发生在   <em><strong>父组件向子组件传值的时候</strong></em>  ，所有的prop使得起父子prop之间形成了也该单向下行绑定。</h5><h5 id="也就是说：父级prop的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外改变父级组件的状态。"><a href="#也就是说：父级prop的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外改变父级组件的状态。" class="headerlink" title="也就是说：父级prop的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外改变父级组件的状态。"></a>也就是说：父级prop的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外改变父级组件的状态。</h5><h4 id="而且"><a href="#而且" class="headerlink" title="而且"></a>而且</h4><h5 id="每次父组件发生更新时，子组件中所有的prop都会刷新为最新的值。所以，在一个子组件内部改变prop，Vue会在浏览器的控制台发出警告。"><a href="#每次父组件发生更新时，子组件中所有的prop都会刷新为最新的值。所以，在一个子组件内部改变prop，Vue会在浏览器的控制台发出警告。" class="headerlink" title="每次父组件发生更新时，子组件中所有的prop都会刷新为最新的值。所以，在一个子组件内部改变prop，Vue会在浏览器的控制台发出警告。"></a>每次父组件发生更新时，子组件中所有的prop都会刷新为最新的值。所以，在一个子组件内部改变prop，Vue会在浏览器的控制台发出警告。</h5><hr>
+<h2 id="4、computed和watch的区别和运用的场景？"><a href="#4、computed和watch的区别和运用的场景？" class="headerlink" title="4、computed和watch的区别和运用的场景？"></a>4、computed和watch的区别和运用的场景？</h2><h3 id="首先（相同点）："><a href="#首先（相同点）：" class="headerlink" title="首先（相同点）："></a>首先（相同点）：</h3><h6 id="computed-和-watch都可以实现数据的监听。"><a href="#computed-和-watch都可以实现数据的监听。" class="headerlink" title="computed 和 watch都可以实现数据的监听。"></a>computed 和 watch都可以实现数据的监听。</h6><h3 id="其次（区别）："><a href="#其次（区别）：" class="headerlink" title="其次（区别）："></a>其次（区别）：</h3><h5 id="第一（本质）："><a href="#第一（本质）：" class="headerlink" title="第一（本质）："></a>第一（本质）：</h5><p><strong>computed：是计算属性</strong>，依赖其他属性值，并且computed的值<strong>有缓存</strong>，当依赖的属性值发生改变时，才会重新计算computed的值，它可以设置getter和setter。</p>
+<p><strong>watch：</strong>更多的是<strong>观察</strong>的作用，每当监听的数据变化都会执行回调进行后续操作，他只能设置getter.</p>
+<h5 id="第二（运用场景）："><a href="#第二（运用场景）：" class="headerlink" title="第二（运用场景）："></a>第二（运用场景）：</h5><p><strong>computed：</strong>当我们需要进行数值计算，并且依赖于其他数据时，使用computed。</p>
+<p><strong>watch：</strong>当我们需要在数据变化时执行异步或开销较大的操作时，应该使用watch。</p>
+<hr>
+<h2 id="5、直接用下标（索引）给一个数组项赋值，Vue能检测到变化吗？"><a href="#5、直接用下标（索引）给一个数组项赋值，Vue能检测到变化吗？" class="headerlink" title="5、直接用下标（索引）给一个数组项赋值，Vue能检测到变化吗？"></a>5、直接用下标（索引）给一个数组项赋值，Vue能检测到变化吗？</h2><h3 id="不能。"><a href="#不能。" class="headerlink" title="不能。"></a>不能。</h3><h5 id="因为，vue在做数据劫持时，只对数组做了劫持，没有对数组的每一项进行劫持。所以用下标的方式修改数组时，vue不能检测到数据的变化。"><a href="#因为，vue在做数据劫持时，只对数组做了劫持，没有对数组的每一项进行劫持。所以用下标的方式修改数组时，vue不能检测到数据的变化。" class="headerlink" title="因为，vue在做数据劫持时，只对数组做了劫持，没有对数组的每一项进行劫持。所以用下标的方式修改数组时，vue不能检测到数据的变化。"></a>因为，vue在做数据劫持时，只对数组做了劫持，没有对数组的每一项进行劫持。所以用下标的方式修改数组时，vue不能检测到数据的变化。</h5><h5 id="为了解决他们，Vue也提供了操作方法：Vue-set"><a href="#为了解决他们，Vue也提供了操作方法：Vue-set" class="headerlink" title="为了解决他们，Vue也提供了操作方法：Vue.set"></a>为了解决他们，Vue也提供了操作方法：Vue.set</h5><h5 id="Vue-set（数组名，下标，新值）"><a href="#Vue-set（数组名，下标，新值）" class="headerlink" title="Vue.set（数组名，下标，新值）"></a>Vue.set（数组名，下标，新值）</h5><hr>
+<h1 id="6、谈谈对Vue生命周期的理解？"><a href="#6、谈谈对Vue生命周期的理解？" class="headerlink" title="6、谈谈对Vue生命周期的理解？"></a>6、谈谈对Vue生命周期的理解？</h1><h3 id="1）、生命周期是什么？"><a href="#1）、生命周期是什么？" class="headerlink" title="1）、生命周期是什么？"></a>1）、生命周期是什么？</h3><h6 id="Vue实例有一个完整的生命周期，也就是从开始创建、初始化数据、编译模板、挂载DOM–-gt-渲染、更新—-gt-渲染、卸载等一系列过程，我们称这是Vue生命周期。"><a href="#Vue实例有一个完整的生命周期，也就是从开始创建、初始化数据、编译模板、挂载DOM–-gt-渲染、更新—-gt-渲染、卸载等一系列过程，我们称这是Vue生命周期。" class="headerlink" title="Vue实例有一个完整的生命周期，也就是从开始创建、初始化数据、编译模板、挂载DOM–>渲染、更新—>渲染、卸载等一系列过程，我们称这是Vue生命周期。"></a>Vue实例有一个完整的生命周期，也就是从开始创建、初始化数据、编译模板、挂载DOM–&gt;渲染、更新—&gt;渲染、卸载等一系列过程，我们称这是Vue生命周期。</h6><h3 id="2）、各个生命周期阶段及其钩子函数"><a href="#2）、各个生命周期阶段及其钩子函数" class="headerlink" title="2）、各个生命周期阶段及其钩子函数"></a>2）、各个生命周期阶段及其钩子函数</h3><h5 id="Vue的生命周期核心经历了四个阶段，在四个阶段的前后分别由两个钩子函数。"><a href="#Vue的生命周期核心经历了四个阶段，在四个阶段的前后分别由两个钩子函数。" class="headerlink" title="Vue的生命周期核心经历了四个阶段，在四个阶段的前后分别由两个钩子函数。"></a>Vue的生命周期核心经历了四个阶段，在四个阶段的前后分别由两个钩子函数。</h5><h6 id="第一阶段：-数据挂载阶段：把配置项data中的属性，赋给了vue对象本身，并且做了数据劫持。"><a href="#第一阶段：-数据挂载阶段：把配置项data中的属性，赋给了vue对象本身，并且做了数据劫持。" class="headerlink" title="第一阶段： 数据挂载阶段：把配置项data中的属性，赋给了vue对象本身，并且做了数据劫持。"></a>第一阶段： 数据挂载阶段：把配置项data中的属性，赋给了vue对象本身，并且做了数据劫持。</h6><p>该阶段前后的两个钩子函数： beforeCreate 和  created</p>
+<h6 id="第二阶段：模板渲染阶段：把vue对象的数据渲染到模板上。"><a href="#第二阶段：模板渲染阶段：把vue对象的数据渲染到模板上。" class="headerlink" title="第二阶段：模板渲染阶段：把vue对象的数据渲染到模板上。"></a>第二阶段：模板渲染阶段：把vue对象的数据渲染到模板上。</h6><p>该阶段前后的两个钩子函数：beforeMount 和  mounted</p>
+<h6 id="第三阶段：组件更新阶段：当数据发送变化时，组件会进行重新渲染，所以，准确的说是，组件重新渲染阶段"><a href="#第三阶段：组件更新阶段：当数据发送变化时，组件会进行重新渲染，所以，准确的说是，组件重新渲染阶段" class="headerlink" title="第三阶段：组件更新阶段：当数据发送变化时，组件会进行重新渲染，所以，准确的说是，组件重新渲染阶段"></a>第三阶段：组件更新阶段：当数据发送变化时，组件会进行重新渲染，所以，准确的说是，组件重新渲染阶段</h6><p>该阶段前后的两个钩子函数：beforeUpdate 和 updated</p>
+<h6 id="第四阶段：组件销毁阶段：组件销毁。"><a href="#第四阶段：组件销毁阶段：组件销毁。" class="headerlink" title="第四阶段：组件销毁阶段：组件销毁。"></a>第四阶段：组件销毁阶段：组件销毁。</h6><p>该阶段前后的两个钩子函数：beforeDestroy 和 destroyed</p>
+<h5 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h5><h6 id="当使用keep-alive包裹组件时，会有组件激活和停用之说，这两个钩子函数分别是：activited-和-deactivated"><a href="#当使用keep-alive包裹组件时，会有组件激活和停用之说，这两个钩子函数分别是：activited-和-deactivated" class="headerlink" title="当使用keep-alive包裹组件时，会有组件激活和停用之说，这两个钩子函数分别是：activited  和  deactivated"></a>当使用keep-alive包裹组件时，会有组件激活和停用之说，这两个钩子函数分别是：activited  和  deactivated</h6><hr>
+<h1 id="Vue生命周期详解"><a href="#Vue生命周期详解" class="headerlink" title="Vue生命周期详解"></a>Vue生命周期详解</h1><p><img src="https://stayawake.oss-cn-beijing.aliyuncs.com/202104231514186151.png"></p>
+<h4 id="使用Vue框架，需要再合适的时机做合适的事情，了解了Vue对象的生命周期和钩子函数，才能知道，哪些事情应该在哪个函数里做。"><a href="#使用Vue框架，需要再合适的时机做合适的事情，了解了Vue对象的生命周期和钩子函数，才能知道，哪些事情应该在哪个函数里做。" class="headerlink" title="使用Vue框架，需要再合适的时机做合适的事情，了解了Vue对象的生命周期和钩子函数，才能知道，哪些事情应该在哪个函数里做。"></a>使用Vue框架，需要再合适的时机做合适的事情，了解了Vue对象的生命周期和钩子函数，才能知道，哪些事情应该在哪个函数里做。</h4><h5 id="一、vue生命周期的理解"><a href="#一、vue生命周期的理解" class="headerlink" title="一、vue生命周期的理解"></a>一、vue生命周期的理解</h5><p>1、生命周期</p>
+<p>用人举例：生命周期就是一个人的一生，从人的出生，到成长，到工作，到死亡，就是人的一生，也叫一个人的生命周期。</p>
+<p>2、对象的生命周期</p>
+<p>在程序开发中对象的生命周期就是：从对象的创建，到使用对象，到对象的消亡整个过程。</p>
+<p>3、Vue的生命周期</p>
+<p>Vue实例，Vue组件实例都是Vue对象，也是对象。所以，Vue的生命周期和对象的生命周期是同样的道理。</p>
+<h5 id="二、Vue生命周期经历的阶段"><a href="#二、Vue生命周期经历的阶段" class="headerlink" title="二、Vue生命周期经历的阶段"></a>二、Vue生命周期经历的阶段</h5><p>Vue对象的生命周期也分不同的阶段，不同的阶段也可以做不同的事情，但是不同的vue（组件）对象在不同的阶段做的事情也不尽相同，所以，每个vue组件的代码不相同。</p>
+<h6 id="Vue生命周期经历哪些阶段："><a href="#Vue生命周期经历哪些阶段：" class="headerlink" title="Vue生命周期经历哪些阶段："></a>Vue生命周期经历哪些阶段：</h6><p>1、总体来说：初始化、运行中、销毁</p>
+<p>2、详细来说：开始创建、初始化数据、编译模板、挂载Dom、渲染–&gt;更新–&gt;渲染、销毁等一系列过程</p>
+<h5 id="三、生命周期经历的阶段和钩子函数"><a href="#三、生命周期经历的阶段和钩子函数" class="headerlink" title="三、生命周期经历的阶段和钩子函数"></a>三、生命周期经历的阶段和钩子函数</h5><h6 id="1、实例化Vue（组件）对象：new-Vue"><a href="#1、实例化Vue（组件）对象：new-Vue" class="headerlink" title="1、实例化Vue（组件）对象：new   Vue()"></a>1、实例化Vue（组件）对象：new   Vue()</h6><h6 id="2、初始化事件和生命周期-init-events-和-init-cycle"><a href="#2、初始化事件和生命周期-init-events-和-init-cycle" class="headerlink" title="2、初始化事件和生命周期  init  events  和  init cycle"></a>2、初始化事件和生命周期  init  events  和  init cycle</h6><h6 id="3、beforeCreated函数："><a href="#3、beforeCreated函数：" class="headerlink" title="3、beforeCreated函数："></a>3、beforeCreated函数：</h6><p>在实例初始化之后，数据观测（data observer）和 event/watcher 事件配置之前被调用。</p>
+<p>此时Vue（组件）对象被创建，但是Vue对象的属性还没有绑定，如果data属性，computed属性还没有绑定，即没有值。</p>
+<p>此时还没有数据和真实DOM。即：属性还没有赋值，也没有动态创建template属性对应的HTML元素（二阶段的createUI海曙还没有执行）</p>
+<h6 id="4、挂载数据（属性赋值）"><a href="#4、挂载数据（属性赋值）" class="headerlink" title="4、挂载数据（属性赋值）"></a>4、挂载数据（属性赋值）</h6><p>包括属性和computed的运算。</p>
+<h6 id="5、Created函数："><a href="#5、Created函数：" class="headerlink" title="5、Created函数："></a>5、Created函数：</h6><p>Vue对象的属性有值了，但是DOM还没有生成，$el属性还不存在。此时有数据了，但是还没有真实DOM</p>
+<p>即：data，computed都执了。属性已经赋值，但还没有动态创建template属性对应的HTML元素，所以，此时如果更改数据不会触发updated函数。</p>
+<p>如果数据初始值就来自于后端，可以发送ajax。或者fetch请求数据。</p>
+<h6 id="6、检查"><a href="#6、检查" class="headerlink" title="6、检查"></a>6、检查</h6><p>1）、检查是否有el属性</p>
+<p>检查Vue配置，即new Vue()里面的el项是否存在，有就继续检查template项。没有则等到手动绑定调用 vm.$mount() </p>
+<p>完成了全局变量$el的绑定。</p>
+<p>2）、检查是否有template属性</p>
+<p>检查配置中的template项，如果没有template进行填充被绑定区域，则被绑定区域的el对象的outerHtml（即整个#app DOM对象，包括</p><div id="app"><div>和</div>标签）都作为被填充对象替换掉填充区域</div><p></p>
+<p>即：如果vue对象中有 template属性，那么，template后面的HTML会替换$el对应的内容。如果有render属性，那么render就会替换template。</p>
+<p>即：优先关系时： render &gt; template &gt; el</p>
+<h6 id="7、beforeMount函数："><a href="#7、beforeMount函数：" class="headerlink" title="7、beforeMount函数："></a>7、beforeMount函数：</h6><p>模板编译（template）数据挂载（把数据显示载模板里）之前执行的钩子函数。</p>
+<p>此时this.$el有值但是数据还没挂载到页面上。即此时页面中的里的变量还没有被数据替换</p>
+<h6 id="8、模板编译："><a href="#8、模板编译：" class="headerlink" title="8、模板编译："></a>8、模板编译：</h6><p>用Vue对象的数据（属性）替换模板中的内容</p>
+<h6 id="9、Mounted函数："><a href="#9、Mounted函数：" class="headerlink" title="9、Mounted函数："></a>9、Mounted函数：</h6><p>模板编译完成，数据挂载完成</p>
+<p>即：此时已经把数据挂载到了页面上，所以，页面上能够看到正确的数据了。</p>
+<p>此处虽然也可以发送异步请求，但是没有created早，所以会显得比较缓慢，所以建议在 creatd里发送请求。</p>
+<h6 id="10、beforeUpdated函数："><a href="#10、beforeUpdated函数：" class="headerlink" title="10、beforeUpdated函数："></a>10、beforeUpdated函数：</h6><p>组件更新之前执行的函数只有数据更新后，才能调用beforeUpdate，注意：此数据一定是在模板上出现的数据，并且改数据值修改前后不一样。否则，不会，也没有必要触发组件更新（因为数据不出现在模板里数据也灭有改变，就没有必要再次渲染）数据更新了，但是Vue（组件）对象对应的DOM中的内部（innerHTML）没有变，所以叫做组件更新前</p>
+<h6 id="11、update函数："><a href="#11、update函数：" class="headerlink" title="11、update函数："></a>11、update函数：</h6><p>组件更新之后执行的函数</p>
+<p>Vue（组件）对象对应的dom中的内部（innerHTML）改变了，所以叫做组更新之后</p>
+<h6 id="12、activated函数："><a href="#12、activated函数：" class="headerlink" title="12、activated函数："></a>12、activated函数：</h6><p>keep-alive组件激活时调用</p>
+<h6 id="13、deactivated函数："><a href="#13、deactivated函数：" class="headerlink" title="13、deactivated函数："></a>13、deactivated函数：</h6><p>keep-alive组件停用时调用</p>
+<h6 id="14、beforeDestory："><a href="#14、beforeDestory：" class="headerlink" title="14、beforeDestory："></a>14、beforeDestory：</h6><p>Vue（组件）对象销毁之前。</p>
+<p>在这个生命周期钩子函数里，可以销毁定时器，因为定时器时全局的，属于window对象的，所以，组件销毁时，并不会销毁定时器</p>
+<h6 id="15、destroyed："><a href="#15、destroyed：" class="headerlink" title="15、destroyed："></a>15、destroyed：</h6><p>Vue组件销毁后</p>
+<h5 id="四、测试代码："><a href="#四、测试代码：" class="headerlink" title="四、测试代码："></a>四、测试代码：</h5><pre class="line-numbers language-none"><code class="language-none">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+  &lt;title&gt;vue生命周期学习&lt;/title&gt;
+  &lt;/head&gt;
+&lt;body&gt;
+  &lt;div id="app"&gt;
+    &lt;h1&gt;{{message}}&lt;/h1&gt;
+    &lt;h1&gt;count:{{count}}&lt;/h1&gt;
+  &lt;/div&gt;
+  &lt;input id="btn01" type="button" value="测试" /&gt;
+&lt;/body&gt;
+&lt;script type="text/javascript" src="js/vue.min.js" &gt;&lt;/script&gt;
+&lt;script&gt;
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      message: 'Vue的生命周期',
+      age:2
+    },
+    computed:{
+    	count:function(){
+    		return this.age+1;
+    	}
+    },
+//  template:"&lt;p&gt;vue对象中的template的内容&lt;/p&gt;",
+//  render: function(createElement) {
+//      return createElement('h1', 'this is createElement')
+//  },
+    beforeCreate: function() {
+      console.group('------beforeCreate创建前状态------');
+      console.log("%c%s", "color:red" , "el     : " + this.$el); //undefined
+      console.log("%c%s", "color:red","data   : " + this.$data); //undefined 
+     console.log("%c%s", "color:red","count   : " + this.count); //undefined 
+      console.log("%c%s", "color:red","message: " + this.message) 
+    },
+    created: function() {
+      console.group('------created创建完毕状态------');
+      console.log("%c%s", "color:red","el     : " + this.$el); //undefined
+      console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化 
+      console.log("%c%s", "color:red","count   : " + this.count); //undefined 
+      console.log("%c%s", "color:red","message: " + this.message); //已被初始化
+    },
+    //完成了el的绑定
+    beforeMount: function() {
+       console.group('------beforeMount挂载前状态------');
+       console.log("%c%s", "color:red","el     : " + (this.$el)); //已被初始化
+       console.log(this.$el.innerHTML);    
+       console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化  
+       console.log("%c%s", "color:red","message: " + this.message); //已被初始化  
+    },
+    mounted: function() {
+      console.group('------mounted 挂载结束状态------');
+      console.log("%c%s", "color:red","el     : " + this.$el); //已被初始化
+      console.log(this.$el);    
+      console.log(this.$el.innerHTML);    
+      console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化
+      console.log("%c%s", "color:red","message: " + this.message); //已被初始化 
+    },
+    beforeUpdate: function () {
+      console.group('beforeUpdate 更新前状态===============》');
+      console.log("%c%s", "color:red","el     : " + this.$el);
+      console.log(this.$el.innerHTML);
+      console.log("%c%s", "color:red","data   : " + this.$data.message); 
+      console.log("%c%s", "color:red","message: " + this.message); 
+    }
+    ,
+    updated: function () {
+      console.group('updated 更新完成状态===============》');
+      console.log("%c%s", "color:red","el     : " + this.$el);
+      console.log(this.$el.innerHTML);   
+      console.log("%c%s", "color:red","data   : " + this.$data); 
+      console.log("%c%s", "color:red","message: " + this.message); 
+    },
+//  beforeDestroy: function () {
+//    console.group('beforeDestroy 销毁前状态===============》');
+//    console.log("%c%s", "color:red","el     : " + this.$el);
+//    console.log(this.$el);    
+//    console.log("%c%s", "color:red","data   : " + this.$data); 
+//    console.log("%c%s", "color:red","message: " + this.message); 
+//  },
+//  destroyed: function () {
+//    console.group('destroyed 销毁完成状态===============》');
+//    console.log("%c%s", "color:red","el     : " + this.$el);
+//    console.log(this.$el);  
+//    console.log("%c%s", "color:red","data   : " + this.$data); 
+//    console.log("%c%s", "color:red","message: " + this.message)
+//  }
+  });
+  
+  document.getElementById("btn01").onclick = function(){
+  		vm.message="改了";
+  }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h5 id="五、模拟Vue的构造函数（部分代码）"><a href="#五、模拟Vue的构造函数（部分代码）" class="headerlink" title="五、模拟Vue的构造函数（部分代码）"></a>五、模拟Vue的构造函数（部分代码）</h5><p>myVue.js</p>
+<pre class="line-numbers language-none"><code class="language-none">class MyVue{
+	constructor(obj){
+		//默认值
+		let defaultObj={
+		  data: null,
+		  computed:null,
+		  watch:null,
+		  beforeCreate:function(){
+			
+		  },
+		  created:function(){
+			
+		  },
+		  beforeMount:function(){
+			
+		  },
+		  mounted:function(){
+			
+		  }
+		}
+		for(let key in defaultObj){
+			obj[key]?this[key]=obj[key]:this[key]=defaultObj[key];
+		}
+		
+		//对象创建完毕已经有this了。
+		this.beforeCreate();	
+		//挂载数据：
+		//1）、把传入的data属性的值赋给this
+		if(obj.data){
+			for(let key in this.data){
+				this[key] = obj.data[key];
+			}	
+			this.$data = obj.data;//设置全局变量
+		}
+		//2）、计算属性		
+		if(obj.computed){
+			for(let key in obj.computed){
+				this[key] = obj.computed[key].call(this);
+			}
+		}		
+		//created函数
+		this.created();
+		//检查是否有el属性
+		if(obj.el){
+			this.el = $(obj.el);
+			this.$el = $(obj.el);//设置全局变量
+		}
+		//检查是否有template属性
+		if(this.template){
+			//this.template = obj.template;
+//			动态创建template 里所有的html元素
+		}
+		//beforeMonute
+		this.beforeMount();
+		//用vue对象的数据（属性）替换模板中的内容
+		//1)、替换data中的数据
+		let html = this.el.innerHTML;				
+		for(let key in this.data){
+			//用属性值替换，属性名（页面上用双花括号包起来的）
+			html=html.replace(new RegExp("{{"+key+"}}","g"),this[key]);
+		}	
+		//2)、替换computed中的数据				
+		for(let key in this.computed){
+			//用属性值替换，属性名（页面上用双花括号包起来的）
+			html=html.replace(new RegExp("{{"+key+"}}","g"),this[key]);
+		}	
+		this.el.innerHTML = html;
+		
+		//mounted函数：
+		this.mounted();
+	}
+	
+	addWatch(){
+		
+	}
+	
+	//数据双向绑定
+	
+	//
+}
+ 
+function $(str){//#box .cls  p
+	if(str.charAt(0)=="#"){
+		return document.getElementById(str.substring(1));
+	}else if(str.charAt(0)=="."){
+		return document.getElementsByClassName(str.substring(1));
+	}else{
+		return document.getElementsByTagName(str);
+	}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>html代码：</p>
+<pre class="line-numbers language-none"><code class="language-none">&lt;body&gt;
+
+  &lt;div id="app"&gt;
+
+    &lt;h1&gt;{{message}}&lt;/h1&gt;
+
+    &lt;h1&gt;count:{{count}}&lt;/h1&gt;
+
+  &lt;/div&gt;
+
+&lt;/body&gt;
+
+&lt;script type="text/javascript" src="js/myvue.js" &gt;&lt;/script&gt;
+
+&lt;script&gt;
+
+  var vm = new MyVue({
+
+    el: '#app',
+
+    data: {
+
+      message: 'Vue的生命周期',
+
+      age:1
+
+    },
+
+    computed:{
+
+        count:function(){
+
+           return this.age+1;
+
+        }
+
+    },
+
+    beforeCreate: function() {
+
+      console.group('------beforeCreate创建前状态------');
+
+      console.log("%c%s", "color:red" , "el     : " + this.$el); //undefined
+
+      console.log("%c%s", "color:red","data   : " + this.$data); //undefined
+
+      console.log("%c%s", "color:red","message: " + this.message)
+
+    },
+
+    created: function() {
+
+      console.group('------created创建完毕状态------');
+
+      console.log("%c%s", "color:red","el     : " + this.$el); //undefined
+
+      console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化
+
+      console.log("%c%s", "color:red","message: " + this.message); //已被初始化
+
+    },
+
+    //完成了el的绑定
+
+    beforeMount: function() {
+
+       console.group('------beforeMount挂载前状态------');
+
+       console.log("%c%s", "color:red","el     : " + (this.$el)); //已被初始化
+
+       console.log(this.$el);
+
+       console.log(this.$el.innerHTML);   
+
+       console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化 
+
+       console.log("%c%s", "color:red","message: " + this.message); //已被初始化 
+
+    },
+
+    mounted: function() {
+
+      console.group('------mounted 挂载结束状态------');
+
+      console.log("%c%s", "color:red","el     : " + this.$el); //已被初始化
+
+      console.log(this.$el);   
+
+      console.log(this.$el.innerHTML);   
+
+      console.log("%c%s", "color:red","data   : " + this.$data); //已被初始化
+
+      console.log("%c%s", "color:red","message: " + this.message); //已被初始化
+
+    }   
+
+  })<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<hr>
+<h2 id="7、Vue的父组件和子组件生命周期钩子函数执行顺序？"><a href="#7、Vue的父组件和子组件生命周期钩子函数执行顺序？" class="headerlink" title="7、Vue的父组件和子组件生命周期钩子函数执行顺序？"></a>7、Vue的父组件和子组件生命周期钩子函数执行顺序？</h2><h3 id="Vue的父子组件钩子函数的执行顺序可以归类为4个部分："><a href="#Vue的父子组件钩子函数的执行顺序可以归类为4个部分：" class="headerlink" title="Vue的父子组件钩子函数的执行顺序可以归类为4个部分："></a>Vue的父子组件钩子函数的执行顺序可以归类为4个部分：</h3><h5 id="第一部分：首次加载渲染"><a href="#第一部分：首次加载渲染" class="headerlink" title="第一部分：首次加载渲染"></a>第一部分：首次加载渲染</h5><h6 id="父-beforeCreated-gt-父-created-gt-父-beforeMount-gt-子-beforeCreate-gt-子-created-gt-子-beforeMount-gt-子-mounted-gt-父-mounted"><a href="#父-beforeCreated-gt-父-created-gt-父-beforeMount-gt-子-beforeCreate-gt-子-created-gt-子-beforeMount-gt-子-mounted-gt-父-mounted" class="headerlink" title="父 beforeCreated->父 created -> 父 beforeMount -> 子 beforeCreate -> 子 created -> 子 beforeMount -> 子 mounted -> 父 mounted"></a>父 beforeCreated-&gt;父 created -&gt; 父 beforeMount -&gt; 子 beforeCreate -&gt; 子 created -&gt; 子 beforeMount -&gt; 子 mounted -&gt; 父 mounted</h6><h5 id="第二部分：父组件修改子组件的props值时："><a href="#第二部分：父组件修改子组件的props值时：" class="headerlink" title="第二部分：父组件修改子组件的props值时："></a>第二部分：父组件修改子组件的props值时：</h5><h6 id="父-beforeUpdate-gt-子-beforeUpdate-gt-子-updated-gt-父-updated"><a href="#父-beforeUpdate-gt-子-beforeUpdate-gt-子-updated-gt-父-updated" class="headerlink" title="父 beforeUpdate -> 子 beforeUpdate -> 子 updated -> 父 updated"></a>父 beforeUpdate -&gt; 子 beforeUpdate -&gt; 子 updated -&gt; 父 updated</h6><h5 id="第三部分：父组件修改的数据跟子组件没有关系时："><a href="#第三部分：父组件修改的数据跟子组件没有关系时：" class="headerlink" title="第三部分：父组件修改的数据跟子组件没有关系时："></a>第三部分：父组件修改的数据跟子组件没有关系时：</h5><h6 id="不会影响子组件-父-beforeUpdate-gt-父-updated"><a href="#不会影响子组件-父-beforeUpdate-gt-父-updated" class="headerlink" title="不会影响子组件 父 beforeUpdate -> 父 updated"></a>不会影响子组件 父 beforeUpdate -&gt; 父 updated</h6><h5 id="第四部分：销毁过程"><a href="#第四部分：销毁过程" class="headerlink" title="第四部分：销毁过程"></a>第四部分：销毁过程</h5><h6 id="父-beforeDestroy-gt-子-beforeDestroy-gt-子-destroyed-gt-父-destroyed"><a href="#父-beforeDestroy-gt-子-beforeDestroy-gt-子-destroyed-gt-父-destroyed" class="headerlink" title="父 beforeDestroy -> 子 beforeDestroy -> 子 destroyed -> 父 destroyed"></a>父 beforeDestroy -&gt; 子 beforeDestroy -&gt; 子 destroyed -&gt; 父 destroyed</h6><hr>
+<h2 id="8、在那个生命周期内调用异步请求？"><a href="#8、在那个生命周期内调用异步请求？" class="headerlink" title="8、在那个生命周期内调用异步请求？"></a>8、在那个生命周期内调用异步请求？</h2><h5 id="答：大部分时候，会在created发送请求。"><a href="#答：大部分时候，会在created发送请求。" class="headerlink" title="答：大部分时候，会在created发送请求。"></a>答：大部分时候，会在created发送请求。</h5><h6 id="1）、此时data已经挂载到Vue实例了，放在beforeCreate里太早，Vue实例没有数据，放在mounted里太晚"><a href="#1）、此时data已经挂载到Vue实例了，放在beforeCreate里太早，Vue实例没有数据，放在mounted里太晚" class="headerlink" title="1）、此时data已经挂载到Vue实例了，放在beforeCreate里太早，Vue实例没有数据，放在mounted里太晚"></a>1）、此时data已经挂载到Vue实例了，放在beforeCreate里太早，Vue实例没有数据，放在mounted里太晚</h6><h6 id="2）、放在-created-中有助于一致性，因为ssr不支持-beforeMount-、mounted-钩子函数。"><a href="#2）、放在-created-中有助于一致性，因为ssr不支持-beforeMount-、mounted-钩子函数。" class="headerlink" title="2）、放在 created 中有助于一致性，因为ssr不支持 beforeMount 、mounted 钩子函数。"></a>2）、放在 created 中有助于一致性，因为ssr不支持 beforeMount 、mounted 钩子函数。</h6><p>Created的使用场景：如果组件的初始数据来自于后端，那就在created里发送请求</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">StayAwake</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://stayawake9.github.io/2023/01/27/mian-shi-ti-he-ji-vue/">https://stayawake9.github.io/2023/01/27/mian-shi-ti-he-ji-vue/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">StayAwake</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                                    <span class="chip bg-color">面试题</span>
+                                </a>
+                            
+                                <a href="/tags/VUE/">
+                                    <span class="chip bg-color">VUE</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/01/27/mian-shi-ti-he-ji-vue/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="面试题合集-VUE">
+                        
+                        <span class="card-title">面试题合集-VUE</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            StayAwake
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">面试题</span>
+                    </a>
+                    
+                    <a href="/tags/VUE/">
+                        <span class="chip bg-color">VUE</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/01/17/mian-shi-ti-he-ji-js/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="面试题合集--JS">
+                        
+                        <span class="card-title">面试题合集--JS</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-17
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            StayAwake
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">
+                        <span class="chip bg-color">面试题</span>
+                    </a>
+                    
+                    <a href="/tags/JS/">
+                        <span class="chip bg-color">JS</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2022-2023</span>
+            
+            <a href="/about" target="_blank">StayAwake</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">8.9k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+                <span id="sitetime"> Loading ...</span>
+                <script>
+                    var calcSiteTime = function () {
+                        var seconds = 1000;
+                        var minutes = seconds * 60;
+                        var hours = minutes * 60;
+                        var days = hours * 24;
+                        var years = days * 365;
+                        var today = new Date();
+                        var startYear = "2022";
+                        var startMonth = "12";
+                        var startDate = "14";
+                        var startHour = "0";
+                        var startMinute = "0";
+                        var startSecond = "0";
+                        var todayYear = today.getFullYear();
+                        var todayMonth = today.getMonth() + 1;
+                        var todayDate = today.getDate();
+                        var todayHour = today.getHours();
+                        var todayMinute = today.getMinutes();
+                        var todaySecond = today.getSeconds();
+                        var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                        var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                        var diff = t2 - t1;
+                        var diffYears = Math.floor(diff / years);
+                        var diffDays = Math.floor((diff / days) - diffYears * 365);
+
+                        // 区分是否有年份.
+                        var language = 'zh-CN';
+                        if (startYear === String(todayYear)) {
+                            document.getElementById("year").innerHTML = todayYear;
+                            var daysTip = 'This site has been running for ' + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                daysTip = '本站已夹缝中生存 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                daysTip = '本站已夹缝中生存 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = daysTip;
+                        } else {
+                            document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                            var yearsAndDaysTip = 'This site has been running for ' + diffYears + ' years and '
+                                + diffDays + ' days';
+                            if (language === 'zh-CN') {
+                                yearsAndDaysTip = '本站已夹缝中生存 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            } else if (language === 'zh-HK') {
+                                yearsAndDaysTip = '本站已夹缝中生存 ' + diffYears + ' 年 ' + diffDays + ' 天';
+                            }
+                            document.getElementById("sitetime").innerHTML = yearsAndDaysTip;
+                        }
+                    }
+
+                    calcSiteTime();
+                </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/stayAwake9" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:zbh709@126.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1327859025" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1327859025" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
